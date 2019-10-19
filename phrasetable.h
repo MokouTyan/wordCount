@@ -16,6 +16,7 @@ public:
 	phrase *search(char *);
 	phrase* front();
 	void pop();
-	void sort();
+	phrase *min_str();
+	void del(phrase*);
 };
 

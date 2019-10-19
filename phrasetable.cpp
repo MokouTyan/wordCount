@@ -44,13 +44,6 @@ phrase *phrasetable::search(char *str)
 }
 phrasetable::~phrasetable()
 {
-	/*while (head != NULL)
-	{
-		phrase*r = head;
-		head = head->next;
-		delete r;
-		r = NULL;
-	}*/
 }
 bool phrasetable::empty()
 {
@@ -70,17 +63,33 @@ void phrasetable::pop()
 	r = NULL;
 }
 
-void phrasetable::sort()
+phrase *phrasetable::min_str()
 {
-	/*phrase *h=NULL, *r = head;
-	while (r != NULL)
+	if (head == NULL)return NULL;
+	char *buff=new char[1000];
+	phrase *x;
+	x = head;
+	strcpy(buff, x->content);
+	while (x ->next!= NULL)
 	{
-		phrase* p;
-		if (h == NULL)
+		x = x->next;
+		if (strcmp(buff, x->content) > 0)
+			strcpy(x->content, buff);
+	}
+	return buff;
+}
+void phrasetable::del(phrase * p)
+{
+	phrase *x=head;
+	while (x!= NULL)
+	{
+		if (x->next == p)
 		{
-			h = new phrase;
-			strcpy(h->content, r->content);
+			x->next = p->next;
+			delete p;
+			p = NULL;
+			return;
 		}
-		r = r->next;
-	}*/
+		x = x->next;
+	}
 }
