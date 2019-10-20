@@ -81,6 +81,11 @@ phrase *phrasetable::min_str()
 void phrasetable::del(phrase * p)
 {
 	phrase *x=head;
+	if (head == p) {
+		head = head->next;
+		delete x;
+		return;
+	{
 	while (x!= NULL)
 	{
 		if (x->next == p)
