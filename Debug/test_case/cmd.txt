@@ -1,0 +1,5 @@
+java WordCount -i D:\code\java\WordCount\input\input1.txt -o D:\code\java\WordCount\output\output1.txt
+java WordCount -i D:\code\java\WordCount\input\input3.txt -o D:\code\java\WordCount\output\output3.txt -m 3 -n 20
+java WordCount -i D:\code\java\WordCount\input\input5.txt -o D:\code\java\WordCount\output\output5.txt -n 15
+java WordCount -i D:\code\java\WordCount\input\input7.txt -o D:\code\java\WordCount\output\output7.txt
+java WordCount -i D:\code\java\WordCount\input\input13.txt -o D:\code\java\WordCount\output\output13.txt -m 3

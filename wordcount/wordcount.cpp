@@ -1,5 +1,4 @@
-﻿// wordcount.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+
 #include"pch.h"
 #include <iostream>
 #include <cstdio>
@@ -9,6 +8,14 @@
 #include <map>
 #include "Method.h"
 #include"sentence.h"
+#include "pch.h"
+#include "Method.h"
+#include <stdio.h>
+#include <string>
+#include<fstream>
+#include "phrasetable.h"
+#define is_number(x)	(x>=48&&x<=57)
+#define is_letter(x)	(x>=97&&x<=122)
 using namespace std;
 bool flagm = false;	//默认不进行词组词频统计
 int m = 1;			//默认词组单词数为1 
@@ -23,6 +30,31 @@ int count_line=0;		//分行总数
 int count_word = 0;		//单词总数
 map<string, int>mapper;	//字典 
 string temp_str = "";		//定义全局变量，怕返回字符串出问题
+
+void get_cmd(int argc, char *argv[])
+{
+	string ms = "-m", ns = "-n", is = "-i", os = "-o";
+	for (int i = 1; i < argc; i++)
+	{
+		if (argv[i] == ms)
+		{
+			flagm = true;
+			m = atoi(argv[++i]);
+		}
+		else if (argv[i] == ns)
+		{
+			n = atoi(argv[++i]);
+		}
+		else if (argv[i] == is)
+		{
+			strcpy_s(InputName, argv[++i]);
+		}
+		else if (argv[i] == os)
+		{
+			strcpy_s(OutputName, argv[++i]);
+		}
+	}
+}
 
 int main(int argc, char *argv[])
 {
